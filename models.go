@@ -43,3 +43,13 @@ func databaseFeedtoFeed(dbFeed database.Feed) Feed {
 		UserID:    dbFeed.UserID,
 	}
 }
+func databaseFeedtoFeeds(dbFeeds []database.Feed) []Feed {
+	feeds := []Feed{}
+
+	for _, dbFeed := range dbFeeds {
+		feeds = append(feeds, databaseFeedtoFeed(dbFeed))
+	}
+
+	return feeds
+
+}
